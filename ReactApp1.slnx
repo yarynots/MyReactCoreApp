@@ -1,0 +1,8 @@
+<Solution>
+  <Project Path="ReactApp1.AppHost/ReactApp1.AppHost.csproj" />
+  <Project Path="reactapp1.client/reactapp1.client.esproj">
+    <Build />
+  </Project>
+  <Project Path="ReactApp1.Server/ReactApp1.Server.csproj" />
+  <Project Path="ReactApp1.ServiceDefaults/ReactApp1.ServiceDefaults.csproj" />
+</Solution>
