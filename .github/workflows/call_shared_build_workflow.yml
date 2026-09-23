@@ -14,5 +14,5 @@ jobs:
     with:
       the-solution: ReactApp1.slnx
     secrets:
-      azure-profile: ${{ secrets.azure_profile }}
+      azure-profile: ${{ secrets.AZURE_PROFILE }}
       
