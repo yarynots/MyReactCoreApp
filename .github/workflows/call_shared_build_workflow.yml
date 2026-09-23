@@ -10,7 +10,7 @@ on:
 jobs:
   
   call-reusable-build-job:
-    uses: YarynotsOrg/shared-workflows/.github/workflows/reusable-build.yml.yml@main
+    uses: YarynotsOrg/shared-workflows/.github/workflows/reusable-build.yml@main
     with:
       the-solution: ReactApp1.slnx
     secrets:
