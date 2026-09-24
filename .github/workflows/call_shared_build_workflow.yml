@@ -16,3 +16,16 @@ jobs:
     secrets:
       azure-profile: ${{ secrets.AZURE_SECRET }}
       
+  send-slack-message:
+    runs-on: ubuntu-latest
+
+    steps:
+    
+      - name: send slack message
+        uses: slackapi/slack-github-action@v4
+        with:
+          method: chat.postMessage
+          token: ${{ secrets.SLACK_BOT_TOKEN }}
+          payload: |
+            channel: ${{ secrets.SLACK_CHANNEL_ID }}
+            text: "howdy <!channel>!"
