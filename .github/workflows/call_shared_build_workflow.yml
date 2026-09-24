@@ -18,11 +18,13 @@ jobs:
       
   send-slack-message:
     runs-on: ubuntu-latest
-
+    needs: call-reusable-build-job
+    
     steps:
     
       - name: send slack message
         uses: slackapi/slack-github-action@v4
+        
         with:
           method: chat.postMessage
           token: ${{ secrets.SLACK_BOT_TOKEN }}
