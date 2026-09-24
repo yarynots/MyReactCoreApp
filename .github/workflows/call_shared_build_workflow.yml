@@ -30,4 +30,4 @@ jobs:
           token: ${{ secrets.SLACK_BOT_TOKEN }}
           payload: |
             channel: ${{ secrets.SLACK_CHANNEL_ID }}
-            text: "${{ github.GITHUB_WORKFLOW }} completed.  Trigger event was ${{ github.GITHUB_EVENT_NAME}}.  Home directory is ${{ github.event_name }}."
+            text: "${{ github.workflow }} completed.  Trigger event was ${{ github.event_name }}."
