@@ -1,0 +1,44 @@
+name: build solution
+description: call butler flow on issue comment
+
+on:
+  issue_comment:
+    types: [created]
+
+permissions:
+  pull-requests: write
+
+jobs:
+  
+  call-reusable-build-job:
+    uses: YarynotsOrg/shared-workflows/.github/workflows/reusable-build.yml@main
+    with:
+      the-solution: ReactApp1.slnx
+    secrets:
+      azure-profile: ${{ secrets.AZURE_SECRET }}
+      
+  send-slack-message:
+    runs-on: ubuntu-latest
+    env: &env_vars # Define the anchor on first use
+      NODE_ENV: production_node_env
+      DATABASE_URL: some_db_url
+    needs: call-reusable-build-job
+    
+    steps:
+    
+      - name: send slack message
+        uses: slackapi/slack-github-action@v4
+        
+        with:
+          method: chat.postMessage
+          token: ${{ secrets.SLACK_BOT_TOKEN }}
+          payload: |
+            channel: ${{ secrets.SLACK_CHANNEL_ID }}
+            text: "${{ github.job }} completed."
+
+  job2:
+    runs-on: ubuntu-latest
+    needs: send-slack-message
+    env: *env_vars # Reuse the environment variables
+    steps:
+      - run: echo "${{ env.NODE_ENV }} and ${{ env.DATABASE_URL }}"
