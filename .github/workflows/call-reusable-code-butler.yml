@@ -1,4 +1,4 @@
-name: build solution
+name: Call Code Butler
 description: call butler flow on issue comment
 
 on:
