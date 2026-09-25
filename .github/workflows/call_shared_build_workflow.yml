@@ -18,6 +18,9 @@ jobs:
       
   send-slack-message:
     runs-on: ubuntu-latest
+    env: &env_vars # Define the anchor on first use
+      NODE_ENV: production_node_env
+      DATABASE_URL: some_db_url
     needs: call-reusable-build-job
     
     steps:
@@ -31,3 +34,9 @@ jobs:
           payload: |
             channel: ${{ secrets.SLACK_CHANNEL_ID }}
             text: "${{ github.workflow }} completed.  Trigger event was ${{ github.event_name }}."
+
+  job2:
+    runs-on: ubuntu-latest
+    env: *env_vars # Reuse the environment variables
+    steps:
+      - run: echo "${{ env.NODE_ENV }} and ${{ env.DATABASE_URL }}"
