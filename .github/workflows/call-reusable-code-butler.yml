@@ -10,7 +10,6 @@ jobs:
   call-reusable-code-butler:
     uses: YarynotsOrg/shared-workflows/.github/workflows/reusable-code-butler.yml@main
     secrets:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       OPEN_API_KEY: ${{ secrets.OPEN_API_KEY }} 
       
     
