@@ -10,5 +10,5 @@ jobs:
   call-reusable-code-butler:
     uses: YarynotsOrg/shared-workflows/.github/workflows/reusable-code-butler.yml@main
     secrets:
-      OPEN_API_KEY: ${{ secrets.OPEN_API_KEY }}
+      OPEN_API_KEY: ${{ secrets.OPENAI_API_KEY }}
       
