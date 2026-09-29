@@ -2,7 +2,7 @@ name: test workflow
 description: test workflow
 
 on:
-  workflow_call:
+  workflow_dispatch:
 
 jobs:
 
