@@ -8,6 +8,9 @@ on:
   workflow_dispatch: 
 
 jobs:
+
+  call-test-flow:
+    uses: yarynots/myreactcoreapp/.github/workflows/test.yml@main
   
   call-reusable-build-job:
     uses: YarynotsOrg/shared-workflows/.github/workflows/reusable-build.yml@main
