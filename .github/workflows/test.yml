@@ -1,0 +1,13 @@
+name: test workflow
+description: test workflow
+
+on:
+  workflow_call:
+
+jobs:
+
+  test_job:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Flow Triggered
+        run: echo "flow triggered"
