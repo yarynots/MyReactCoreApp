@@ -14,7 +14,7 @@ jobs:
           cd .. 
           ls -R .
       - id: foo
-        uses: yarynots/myreactcoreapp/.github/actions/action@main
+        uses: .github/actions/action.yml
         with:
           who-to-greet: 'Mona the pretty Octocat'
       - run: echo random-number "$RANDOM_NUMBER"
