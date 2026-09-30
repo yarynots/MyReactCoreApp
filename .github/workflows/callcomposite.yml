@@ -10,7 +10,9 @@ jobs:
     steps:
       - uses: actions/checkout@v6
       - name: List files on runner
-        run: ls -R .
+        run: | 
+          cd .. 
+          ls -R .
       - id: foo
         uses: ./.github/actions/action
         with:
