@@ -22,5 +22,5 @@ runs:
      run: echo "random-number=$(echo $RANDOM)" >> $GITHUB_OUTPUT
      shell: bash
    - name: Run goodbye.sh
-     run: goodbye.sh
+     run: .github/actions/goodbye.sh
      shell: bash
