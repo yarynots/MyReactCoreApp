@@ -1,0 +1,26 @@
+name: log_cleanup_workflow
+description: This workflow is triggered by the reusable workflow call in the main workflow. It performs log cleanup tasks.
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # Runs every day at midnight
+  workflow_dispatch: # Allows manual triggering of the workflow
+    inputs:
+      repo_owner:
+        description: 'Specify the repository owner'
+        required: false
+        default: 'default-owner'
+      repo_name:
+        description: 'Specify the repository name'
+        required: false
+        default: 'default-repo'
+
+jobs:
+
+  log_cleanup:
+    uses:  yarynotsorg/shared-workflows/.github/workflows/reusable-workflow-log-cleanup.yml@main
+    with:
+     repo_owner:
+     repo_name:
+
+    
