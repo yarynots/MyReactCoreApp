@@ -5,22 +5,13 @@ on:
   schedule:
     - cron: '0 0 * * *' # Runs every day at midnight
   workflow_dispatch: # Allows manual triggering of the workflow
-    inputs:
-      repo_owner:
-        description: 'Specify the repository owner'
-        required: false
-        default: 'default-owner'
-      repo_name:
-        description: 'Specify the repository name'
-        required: false
-        default: 'default-repo'
 
 jobs:
 
   log_cleanup:
+
     uses:  yarynotsorg/shared-workflows/.github/workflows/reusable-workflow-log-cleanup.yml@main
     with:
-     repo_owner:
-     repo_name:
+      repo-name: ${{ github.repository }} 
 
     
