@@ -1,4 +1,4 @@
-name: log clean up workflow
+name: clean up the logs
 description: This workflow calls log clean up share-workflow.
 
 on:
