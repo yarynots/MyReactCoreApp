@@ -28,4 +28,14 @@ jobs:
     with:
       repo-name: ${{ github.repository }} 
 
+  message_team:
+
+    uses: yarynotsorg/shared-workflows/.github/workflows/reusable-send-slack-message.yml@main
+    needs: log_cleanup
+    secrets:
+      slack-webhook-url: ${{ secrets.SLACK_WEBHOOK_URL }}
+    with:
+      message: "Log cleanup workflow has completed successfully."
+
+
     
