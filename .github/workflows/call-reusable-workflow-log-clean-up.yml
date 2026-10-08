@@ -32,10 +32,11 @@ jobs:
 
     uses: yarynotsorg/shared-workflows/.github/workflows/reusable-send-slack-msg.yml@main
     needs: log_cleanup
-    secrets:
-      slack-webhook-url: ${{ secrets.SLACK_WEBHOOK_URL }}
     with:
       message: "Log cleanup workflow has completed successfully."
+    secrets:
+      slack-webhook-url: ${{ secrets.SLACK_WEBHOOK_URL }}
+
 
 
     
